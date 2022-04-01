@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+   
+    <script>
+
+
+//Creer 3 variables en références aux elements ul input button
+let ul=document.querySelector("ul");
+let input=document.getElementById("item");
+let button=document.querySelector('button'); 
+let taskNoCheck=[];
+let taskCheck=[];
+let allTask=[];
+//--------------------------------------------------
+
+//Function click on button
+
+console.log(button)
+button.addEventListener("click", Click);
+
+function Click() {
+  input.focus();
+  let myinput=input.value;
+  input.value="";
+  
+  
+ 
+//CREATE NEW HTML ELEMENTS
+
+//LI----
+let newLi=document.createElement("li");
+ul.appendChild(newLi);
+
+//CREATE CHECKBOX
+let inputCheckbox=document.createElement("input");
+inputCheckbox.setAttribute("type", "checkbox");
+inputCheckbox.setAttribute("id", "myCheck");
+// check.setAttribute("onclick", "myFunction()")
+inputCheckbox.onclick = function() { myFunction() };
+newLi.appendChild(inputCheckbox);
+
+
+// SPAN ----
+let newSpan=document.createElement("span");
+let newSpanContent=document.createTextNode(myinput);
+newSpan.appendChild(newSpanContent);
+newLi.appendChild(newSpan);
+
+
+
+
+//BUTTON----
+let newButton=document.createElement("button");
+newButton.setAttribute("id", 'newbutton');
+let newButtonContent=document.createTextNode("Supprimer")
+newButton.appendChild(newButtonContent);
+newLi.appendChild(newButton);
+// let text=newSpanContent.textContent;
+// console.log(text)
+// DELETE INPUT BUTTON---------------------
+newButton.addEventListener('click', (deleteInput) => {
+  newSpanContent.remove(myinput);
+  ul.removeChild(newLi);
+});
+let checkbox=document.getElementById("myCheck");
+
+//CHECKBOX is check => stock array
+function myFunction(checked)   {
+  
+ for(let i=0; i<checkbox.lenght;i++){
+checkbox[i].checked == true
+    }
+    document.querySelector('span').style.fontStyle="italic";
+        console.log(myinput) 
+ } 
+ 
+
+
+
+}
+
+      
+
+
+
+    </script>
+  </body>
+</html>
